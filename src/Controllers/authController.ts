@@ -1,29 +1,11 @@
-import { request } from "http";
-import * as crypto from "crypto";
+
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const User = require('../Models/user');
 const Token = require('../Models/accessToken');
 import mongoose from "mongoose";
-import * as bcrypt from 'bcrypt';
 
 const resetPass = require('../Models/resetPass');
 
-export const Encrypt = {
-
-    cryptPassword: (password: string) =>
-        bcrypt.genSalt(10)
-        .then((salt => bcrypt.hash(password, salt)))
-        .then(hash => hash),
-    
-        comparePassword: (password: string, hashPassword: string) =>
-            bcrypt.compare(password, hashPassword)
-            .then(resp => resp)
-    
-    }
-
-    var randomFixedInteger = function (length) {
-        return Math.floor(Math.pow(10, length-1) + Math.random() * (Math.pow(10, length) - Math.pow(10, length-1) - 1));
-    }
 const database = (() => {
     const connectionParams = {
         useNewUrlParser: true,

@@ -1,11 +1,8 @@
-import { request } from "http";
-import * as crypto from "crypto";
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import * as bcrypt from 'bcrypt';
+import mongoose from "mongoose";
 const Categories = require('../Models/categories');
 const Product = require('../Models/products');
-import mongoose from "mongoose";
 const deliveryaddresses = require('../Models/deliveryaddresses');
-import * as bcrypt from 'bcrypt';
 const User = require('../Models/user');
 const Cart = require('../Models/cart');
 const Order = require('../Models/order');
